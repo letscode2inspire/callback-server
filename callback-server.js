@@ -4,7 +4,7 @@ const xml2js = require('xml2js');
 const chalk = require('chalk');
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = Number(process.env.PORT || process.env.RAILWAY_PORT || 3000);
 
 // Middleware to parse XML
 app.use(bodyParser.text({ type: 'text/xml' }));
@@ -215,9 +215,11 @@ app.get('/health', (req, res) => {
 });
 
 // Start server
-const server = app.listen(PORT, '0.0.0.0', () => {
+const server = app.listen(PORT, () => {
   console.log('\n🚀 Callback Testing Server Started');
   console.log(`\nListening on port ${PORT}`);
+  console.log(`PORT env: ${process.env.PORT || 'unset'}`);
+  console.log(`RAILWAY_PORT env: ${process.env.RAILWAY_PORT || 'unset'}`);
   console.log('\nWaiting for callbacks...\n');
 });
 
