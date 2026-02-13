@@ -1,0 +1,19 @@
+{
+  "name": "dsr-callback-server",
+  "version": "1.0.0",
+  "description": "DSR Callback Testing Server",
+  "main": "dsr-callback-server.js",
+  "scripts": {
+    "start": "node dsr-callback-server.js",
+    "dev": "nodemon dsr-callback-server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "body-parser": "^1.20.2",
+    "xml2js": "^0.6.2",
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
