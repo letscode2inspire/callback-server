@@ -198,6 +198,14 @@ app.post('*', async (req, res) => {
 });
 
 // Health check endpoint
+app.get('/', (req, res) => {
+  res.json({
+    status: 'ok',
+    message: 'DSR Callback Server is running',
+    timestamp: new Date().toISOString()
+  });
+});
+
 app.get('/health', (req, res) => {
   res.json({ 
     status: 'ok', 
