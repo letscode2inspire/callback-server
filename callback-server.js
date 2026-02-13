@@ -209,10 +209,6 @@ app.get('/health', (req, res) => {
 // Start server
 app.listen(PORT, '0.0.0.0', () => {
   console.log('\n🚀 Callback Testing Server Started');
-  console.log('='.repeat(80));
-  console.log(`📡 Listening on: http://0.0.0.0:${PORT}`);  // Changed from localhost
-  console.log(`💚 Health check: http://0.0.0.0:${PORT}/health`);
-  console.log('='.repeat(80));
   console.log('\nWaiting for callbacks...\n');
 });
 
