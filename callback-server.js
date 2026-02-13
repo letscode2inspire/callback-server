@@ -215,9 +215,24 @@ app.get('/health', (req, res) => {
 });
 
 // Start server
-app.listen(PORT, '0.0.0.0', () => {
+const server = app.listen(PORT, '0.0.0.0', () => {
   console.log('\n🚀 Callback Testing Server Started');
+  console.log(`\nListening on port ${PORT}`);
   console.log('\nWaiting for callbacks...\n');
+});
+
+server.on('error', (error) => {
+  console.error('Server listen error:', error);
+  process.exit(1);
+});
+
+process.on('unhandledRejection', (reason) => {
+  console.error('Unhandled promise rejection:', reason);
+});
+
+process.on('uncaughtException', (error) => {
+  console.error('Uncaught exception:', error);
+  process.exit(1);
 });
 
 // Graceful shutdown
