@@ -4,8 +4,8 @@
   "description": "DSR Callback Testing Server",
   "main": "dsr-callback-server.js",
   "scripts": {
-    "start": "node dsr-callback-server.js",
-    "dev": "nodemon dsr-callback-server.js"
+    "start": "node callback-server.js",
+    "dev": "nodemon callback-server.js"
   },
   "dependencies": {
     "express": "^4.18.2",
