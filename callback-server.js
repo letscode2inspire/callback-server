@@ -207,15 +207,13 @@ app.get('/health', (req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-  console.log(chalk.green.bold('\n🚀 DSR Callback Testing Server Started'));
-  console.log(chalk.cyan('='.repeat(80)));
-  console.log(chalk.white(`📡 Listening on: ${chalk.yellow(`http://localhost:${PORT}`)}`));
-  console.log(chalk.white(`💚 Health check: ${chalk.yellow(`http://localhost:${PORT}/health`)}`));
-  console.log(chalk.cyan('='.repeat(80)));
-  console.log(chalk.gray('\nWaiting for DSR callbacks...\n'));
-  console.log(chalk.yellow('💡 Tip: Use ngrok to expose this server for testing'));
-  console.log(chalk.gray('   Run: npx ngrok http 3000\n'));
+app.listen(PORT, '0.0.0.0', () => {
+  console.log('\n🚀 Callback Testing Server Started');
+  console.log('='.repeat(80));
+  console.log(`📡 Listening on: http://0.0.0.0:${PORT}`);  // Changed from localhost
+  console.log(`💚 Health check: http://0.0.0.0:${PORT}/health`);
+  console.log('='.repeat(80));
+  console.log('\nWaiting for callbacks...\n');
 });
 
 // Graceful shutdown
